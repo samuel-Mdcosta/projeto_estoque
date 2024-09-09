@@ -3,7 +3,8 @@ package visao;
 import java.util.ArrayList;
 
 import dominio.ClasseProduto;
-import fakedb.ClasseProdutoFakeDb;
+
+import Repositorio.ClasseProdutoRepo;
 
 public class ClasseProdutoVisao {
 
@@ -13,17 +14,18 @@ public class ClasseProdutoVisao {
     
     // Função que vai mostrar a tabela
     public void Exibir(){
-        ClasseProdutoFakeDb db = new ClasseProdutoFakeDb();
-        ArrayList<ClasseProduto> lista = db.getTabela();
-        System.out.println("===================================");
-        for (ClasseProduto cp: lista) {
-            //tipo da coleção / nome da variavel / coleção
-            System.out.println("Classe de produtos");
-            System.out.println("Codigo: " + cp.getCodigo());
-            System.out.println("descrição: " + cp.getDescricao());
-            System.out.println("Data de Inclusão: " + cp.getDataDeInclusao());
-            System.out.println("------------------------------");
+       ClasseProdutoRepo repo = new ClasseProdutoRepo();
+        ArrayList<ClasseProduto> lista = repo.ReadAll();
+        for(ClasseProduto cp : lista){
+            this.imprimir(cp);
         }
+    }
+
+    private void imprimir(ClasseProduto cp){
+        System.out.println("Classe de Produto");
+        System.out.println("Codigo: " + cp.getCodigo());
+        System.out.println("descrição: " + cp.getDescricao());
+        System.out.println("Data da Inclusão: " + cp.getDataDeInclusao());
     }
 
 }
