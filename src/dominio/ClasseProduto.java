@@ -2,6 +2,8 @@ package dominio;
 
 import java.time.LocalDate;
 
+import servico.ClasseProdutoServico;
+
 public class ClasseProduto extends BaseParametro{
     public ClasseProduto(){
 
@@ -14,6 +16,10 @@ public class ClasseProduto extends BaseParametro{
 
         //representa a classe pai, resebendo seus atributos por parametros
         super(codigo, descricao, dataDeInclusao);
+    }
+
+    public ClasseProduto criar(ClasseProdutoServico classeProdutoServico) {
+        return classeProdutoServico.repositorio.Create(this);
     }
 }
 
