@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import Repositorio.ClasseProdutoRepo;
 import dominio.ClasseProduto;
 
-public abstract class ClasseProdutoServico extends BaseServico<ClasseProduto> {
+public class ClasseProdutoServico extends BaseServico<ClasseProduto> {
 
     public ClasseProdutoRepo repositorio;
 

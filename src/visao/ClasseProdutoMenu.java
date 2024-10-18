@@ -12,7 +12,7 @@ public class ClasseProdutoMenu extends BaseMenu {
 
     public ClasseProdutoMenu(){
         super();
-        this.srv = new ClasseProdutoServico(){};
+        this.srv = new ClasseProdutoServico();
     }
 
     @Override
